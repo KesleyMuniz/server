@@ -1,5 +1,1 @@
-const teste = 1;
-
-async function aaaa() {
-    return 'ok';
-}
+import express from 'express';
