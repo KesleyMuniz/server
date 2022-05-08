@@ -3,6 +3,7 @@
         "codepaths",
         "datasource",
         "teste",
-        "tsbuildinfo"
+        "tsbuildinfo",
+        "uuid"
     ]
 }
