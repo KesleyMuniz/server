@@ -1,12 +1,16 @@
 {
     "cSpell.words": [
+        "automock",
         "codepaths",
         "datasource",
         "Feedget",
         "Kesley",
+        "lcov",
         "mailtrap",
+        "Serializers",
         "teste",
         "tsbuildinfo",
+        "unmocked",
         "uuid"
     ]
 }

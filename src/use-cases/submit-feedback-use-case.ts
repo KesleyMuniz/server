@@ -12,12 +12,29 @@ export class SubmitFeedbackUseCase {
     private feedbacksRepository: FeedbacksRepository,
     private mailAdapter: MailAdapter,
   ) {}
+
+
   async execute({type, comment, screenshot}: SubmitFeedbackUseCaseRequest) {
-      await this.feedbacksRepository.create({
+
+    if (!type) {
+      throw new Error('O tipo de bug é necessário');
+    }
+
+    if (!comment) {
+      throw new Error('O comentário do bug é necessário');
+    }
+
+    if (screenshot && !screenshot.startsWith('data:image/png;base64')) {
+      throw new Error('Formato da screenshot invalido');
+    }
+      
+    await this.feedbacksRepository.create({
         type,
         comment,
         screenshot,
       })
+
+
       await this.mailAdapter.sandMail({
         subject: 'Novo Feedback',
         body: [
