@@ -16,14 +16,6 @@ const transport = nodemailer.createTransport({
 routes.post('/feedbacks', async (req, res) => {
   const { type, comment, screenshot } = req.body;
 
-  const feedback = await prisma.feedback.create({
-      data: {
-          type,
-          comment,
-          screenshot,
-      }
-  });
-
   await transport.sendMail({
       from: 'Equipe Feedget <oi@oi.com>',
       to: 'Kesley <skyzone121@hotmail.com>',
